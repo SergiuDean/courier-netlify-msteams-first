@@ -22,7 +22,7 @@ class BotActivityHandler extends TeamsActivityHandler {
       } else if (text === "test") {
         await context.sendActivity(`Gravity bot has been successfully added.`);
       } else if (text === "info") {
-        await context.sendActivity("service url: "+service_url+"\ntenant id: "+tenant_id+"\nuser id: "+context.activity.from.id);
+        await context.sendActivity("service url: "+service_url+"tenant id: "+tenant_id);//+"\nuser id: "+context.activity.from.id
       }
 
       await next();
