@@ -10,10 +10,10 @@ class BotActivityHandler extends TeamsActivityHandler {
     this.onMessage(async (context, next) => {
       TurnContext.removeRecipientMention(context.activity);
       const text = context.activity.text.trim().toLocaleLowerCase();
-      if (text.includes("show-channel")) {
+      if (text.includes("channel")) {
         if (!context.activity.channelData.channel) {
           await context.sendActivity(
-            `show-channel must be called from a channel.`
+            `channel must be called from a channel.`
           );
          return;
         }
