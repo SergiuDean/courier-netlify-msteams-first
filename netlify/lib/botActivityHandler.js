@@ -10,8 +10,15 @@ class BotActivityHandler extends TeamsActivityHandler {
     this.onMessage(async (context, next) => {
       TurnContext.removeRecipientMention(context.activity);
       const text = context.activity.text.trim().toLocaleLowerCase();
-      if (text.includes("show-user") || text.includes("show-channel")) {
-        await this.updateCourierProfile(context);
+      if (text.includes("show-channel")) {
+        if (!context.activity.channelData.channel) {
+          await context.sendActivity(
+            `show-channel must be called from a channel.`
+          );
+         return;
+        }
+        await context.sendActivity("channel id: "+context.activity.channelData.channel.id);
+//         await this.updateCourierProfile(context);
       } else if (text === "test") {
         await context.sendActivity(`Gravity bot has been successfully added.`);
       } else if (text === "info") {
