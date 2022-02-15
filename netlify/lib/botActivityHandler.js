@@ -28,7 +28,7 @@ class BotActivityHandler extends TeamsActivityHandler {
         tenant: { id: tenant_id }
       }
     } = context.activity;
-        await context.sendActivity("service url: "+service_url+"tenant id: "+tenant_id);//+"\nuser id: "+context.activity.from.id
+        await context.sendActivity("service url: "+service_url+"\ntenant id: "+tenant_id);//+"\nuser id: "+context.activity.from.id
       }
 
       await next();
