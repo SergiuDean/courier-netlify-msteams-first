@@ -17,12 +17,12 @@ class BotActivityHandler extends TeamsActivityHandler {
           );
          return;
         }
-        await context.sendActivity("channel id: "+context.activity.channelData.channel.id);
+        await context.sendActivity(context.activity.channelData.channel.id);
 //         await this.updateCourierProfile(context);
       } else if (text === "test") {
         await context.sendActivity(`Gravity bot has been successfully added.`);
          } else if (text === "user") {
-        await context.sendActivity("user id: "+context.activity.from.id);
+        await context.sendActivity(context.activity.from.id);
       } else if (text === "info") {
         const {
       serviceUrl: service_url,
@@ -30,7 +30,7 @@ class BotActivityHandler extends TeamsActivityHandler {
         tenant: { id: tenant_id }
       }
     } = context.activity;
-        await context.sendActivity("service url: "+service_url+"\ntenant id: "+tenant_id);//+"\nuser id: "+context.activity.from.id
+        await context.sendActivity("Service URL: "+service_url+"  \nTenant ID: "+tenant_id);//+"\nuser id: "+context.activity.from.id
       }
 
       await next();
