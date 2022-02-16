@@ -19,11 +19,13 @@ class BotActivityHandler extends TeamsActivityHandler {
         }
         await context.sendActivity(context.activity.channelData.channel.id);
 //         await this.updateCourierProfile(context);
-      } else if (text === "test") {
+      } else if (text.includes("test")) {
         await context.sendActivity(`Gravity bot has been successfully added.`);
-         } else if (text === "user") {
+         } else if (text.includes("user")) {
         await context.sendActivity(context.activity.from.id);
-      } else if (text === "info") {
+      } else if (text.includes("help")) {
+        await context.sendActivity("If you call these commands from a channel use `@Gravity info` format. Bot must be added to a channel before calling. Available commands: test, info, user, channel");
+      } else if (text.includes("info")) {
         const {
       serviceUrl: service_url,
       channelData: {
