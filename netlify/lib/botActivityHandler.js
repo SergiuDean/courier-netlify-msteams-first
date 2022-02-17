@@ -17,12 +17,12 @@ class BotActivityHandler extends TeamsActivityHandler {
           );
          return;
         }
-        await context.sendActivity(context.activity.channelData.channel.id);
+        await context.sendActivity("Channel ID: "+context.activity.channelData.channel.id);
 //         await this.updateCourierProfile(context);
       } else if (text.includes("test")) {
         await context.sendActivity(`Gravity bot has been successfully added.`);
       } else if (text.includes("user")) {
-        await context.sendActivity(context.activity.from.id);
+        await context.sendActivity("User ID: "+context.activity.from.id);
       } else if (text.includes("help")) {
         await context.sendActivity("If you call these commands from a channel use `@Gravity info` format.   \nBot must be added to a channel before calling.  \nAvailable commands: test, info, user, channel");
       } else if (text.includes("info")) {
