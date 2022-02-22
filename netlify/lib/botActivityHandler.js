@@ -33,6 +33,8 @@ class BotActivityHandler extends TeamsActivityHandler {
       }
     } = context.activity;
         await context.sendActivity("Service URL: "+service_url+"  \nTenant ID: "+tenant_id);//+"\nuser id: "+context.activity.from.id
+      } else {
+        await context.sendActivity("Unknown command!  Available commands: test, info, user, channel");
       }
 
       await next();
