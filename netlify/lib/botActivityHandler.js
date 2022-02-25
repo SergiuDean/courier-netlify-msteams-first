@@ -9,7 +9,7 @@ class BotActivityHandler extends TeamsActivityHandler {
 
         this.onMembersAdded(async (context, next) => {
 
-          const message = "Hello! And welcome to Gravity!   \nThis bot can return information needed to set up a Microsoft Teams Notification Integration in our platform.   \nThe notifications will be based on important events, for example job failiures.";
+          const message = "Hello! And welcome to Gravity!   \nThis bot can return information needed to set up a Microsoft Teams Notification Integration in our platform.   \nThe notifications will be based on important events happening in the platform, for example job failiures.";
 
           for (const idx in context.activity.membersAdded) {
 
