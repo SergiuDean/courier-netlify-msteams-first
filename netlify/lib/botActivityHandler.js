@@ -8,8 +8,10 @@ class BotActivityHandler extends TeamsActivityHandler {
 
 
         this.onMembersAdded(async (context, next) => {
+          
+          const message = "Hello!   \nThis Gravity Integration sends notifications about important events from your Gravity account such as Job statuses, to personal chats or Team channels.   \nTo get started, take a look at https://docs.gravitydata.co/integrations/teams"
 
-          const message = "Hello! And welcome to Gravity!   \nThis bot can return information needed to set up a Microsoft Teams Notification Integration in our platform.   \nThe notifications will be based on important events happening in the platform, for example job failiures.";
+//           const message = "Hello! And welcome to Gravity Teams Integration!   \nThis bot can return information needed to set up a Microsoft Teams Notification Integration in our platform.   \nThe notifications will be based on important events, for example job failiures.";
 
           for (const idx in context.activity.membersAdded) {
 
@@ -77,7 +79,7 @@ class BotActivityHandler extends TeamsActivityHandler {
       } else if (text.toLowerCase().includes("user")) {
         await context.sendActivity("User ID: "+context.activity.from.id);
       } else if (text.toLowerCase().includes("help")) {
-        await context.sendActivity("If you call these commands from a channel use `@Gravity info` format.   \nBot must be added to a channel before calling.   \nAvailable commands:   \ntest - checks if Gravity is available,   \ninfo - returns Service URL and Tenant ID used to create integrations,   \nuser - returns User ID used to create policies that send notifications to personal chat,   \nchannel - returns Channel ID used to create policies that send notifications to team channels");
+        await context.sendActivity("Available commands   \nBot must be added to a channel before calling. Use the `@Gravity <command>` format or press `Space` for command suggestions.   \n`test` - checks if Gravity is reachable,   \n`info` - returns Service URL and Tenant ID required for Gravity Integration setup,   \n`user` - returns User ID for creating policies that send notifications to personal chats,   \n`channel` - returns Channel ID for creating policies that send notifications to team channels");
       } else if (text.toLowerCase().includes("info")) {
         const {
           serviceUrl: service_url,
